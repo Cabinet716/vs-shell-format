@@ -2,6 +2,26 @@
 
 Check [Keep a Changelog](https://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 7.2.5
+
+- fix rating badge
+
+## 7.2.4
+
+- fix badge
+
+## 7.2.3
+
+- bump shfmt to 3.6.0
+
+## 7.2.2
+
+- Fix: substitule "${workspaceFolder}" in need install check #243
+
+## 7.2.1
+
+- publish by github action
+
 ## 7.2.0
 
 - bats files support

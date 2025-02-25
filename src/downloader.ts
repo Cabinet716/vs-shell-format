@@ -103,7 +103,6 @@ export function getArchExtension(): Arch {
     case 'arm64':
       return Arch.arm64;
     case 'ia32':
-    case 'x32':
       return Arch.i386;
     case 'x64':
       return Arch.x64;
@@ -215,9 +214,7 @@ export async function checkInstall(context: vscode.ExtensionContext, output: vsc
       });
       // await fs.promises.chmod(destPath, 755);
       output.appendLine(`download success, You can use it successfully!`);
-      output.appendLine(
-        'Suggestions or issues can be submitted here https://git.io/vsshell-issues'
-      );
+      output.appendLine('Start or issues can be submitted here https://git.io/shfmt');
     } catch (err) {
       output.appendLine(`download failed: ${err}`);
     }
@@ -237,7 +234,7 @@ async function cleanFile(file: string) {
 
 async function checkNeedInstall(dest: string, output: vscode.OutputChannel): Promise<boolean> {
   try {
-    const configPath = vscode.workspace.getConfiguration().get<string>(shellformatPath);
+    const configPath = getSettings('path');
     if (configPath) {
       try {
         await fs.promises.access(configPath, fs.constants.X_OK);
